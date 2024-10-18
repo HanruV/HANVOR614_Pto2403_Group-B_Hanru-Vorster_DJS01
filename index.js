@@ -29,6 +29,21 @@ const velocityDuringTravel = calcVelocityDuringTravel(
 
 // Pick up an error with how the function below is called and make it robust to such errors
 function calcVelocityDuringTravel(vel, acc, time) {
+  if (typeof vel !== "number" || vel < 0) {
+    throw new Error(
+      "The velocity is invalid, provide a pisitive number in meters per second"
+    );
+  }
+  if (typeof acc !== "number" || acc < 0) {
+    throw new Error(
+      "The acceleration is invalid, provide a pisitive number in meters per second"
+    );
+  }
+  if (typeof time !== "number" || time < 0) {
+    throw new Error(
+      "The time is invalid, provide a pisitive number in seconds"
+    );
+  }
   return (vel + acc * time) * 3.6; //converts the m/s to km/h
 }
 
