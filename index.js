@@ -13,8 +13,9 @@ const startingDistanceInKm = 0; // distance (km) (starting distance)
 const InitialFuelInKg = 5000; // remaining fuel (kg)
 const fuelBurnRateKgPerSecond = 0.5; // fuel burn rate (kg/s)
 
-const d2 = startingDistanceInKm + velocityKmH * travelTimeInSeconds; //calcultes new distance
-console.log(d2);
+const distanceAfterTravel =
+  startingDistanceInKm + velocityKmH * (travelTimeInSeconds / 3600); //calcultes new distance , converted travelTimeInSeconds to hour because its velocity km/h
+console.log(distanceAfterTravel);
 const rf = fuelBurnRateKgPerSecond * travelTimeInSeconds; //calculates remaining fuel
 console.log(rf);
 const vel2 = calcNewVel(accelerationMetersPerSecondSquared, velocityKmH, time); //calculates new velocity based on acceleration
@@ -25,6 +26,6 @@ calcNewVel = (vel, acc, time) => {
   return vel + acc * time;
 };
 
+console.log(`Corrected New Distance: ${distanceAfterTravel} km`);
 console.log(`Corrected New Velocity: ${vel2} km/h`);
-console.log(`Corrected New Distance: ${d2} km`);
 console.log(`Corrected Remaining Fuel: ${rf} kg`);
