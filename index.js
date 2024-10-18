@@ -17,9 +17,8 @@ const fuelBurnRateKgPerSecond = 0.5; // fuel burn rate (kg/s)
 const distanceAfterTravel =
   startingDistanceInKm + velocityKmH * (travelTimeInSeconds / 3600); //calcultes new distance , converted travelTimeInSeconds to hour because its velocity km/h
 
-const fuelBurnedInKg = fuelBurnRateKgPerSecond * travelTimeInSeconds; //calculates  fuel burned
-
-const remainingFuelAfterTravelInKg = InitialFuelInKg - fuelBurnedInKg; //calculates remaining fuel after travel
+const remainingFuelAfterTravelInKg =
+  InitialFuelInKg - fuelBurnRateKgPerSecond * travelTimeInSeconds; //calculates remaining fuel after travel
 
 const velocityDuringTravel = calcVelocityDuringTravel(
   velocityInMetersPerSecond,
